@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+	id 'eclipse'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-mustache'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'mysql:mysql-connector-java'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.data:spring-data-commons'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'com.linkedin.parseq:parseq:4.0.1'
+	implementation 'com.linkedin.pegasus:data:27.7.18'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
