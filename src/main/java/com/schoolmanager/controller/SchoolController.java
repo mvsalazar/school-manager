@@ -1,6 +1,8 @@
 package com.schoolmanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +22,14 @@ public class SchoolController {
 	private SchoolRepository schoolRepository;
 	
 	@PostMapping(path="/add")
-	public @ResponseBody String addNewSchool(@RequestParam String name, @RequestParam String location) {
+	public @ResponseBody ResponseEntity<School> addNewSchool(@RequestParam String name, @RequestParam String location) {
 		School school = new School();
 		school.setName(name);
 		school.setLocation(location);
 		
 		schoolRepository.save(school);
 		
-		return "Saved";
+		return new ResponseEntity<School>(school, HttpStatus.CREATED);
 	}
 	
 	
