@@ -41,10 +41,30 @@ These additional references should also help you:
 
 ## Adding a school
 ```
-curl 'http://localhost:8080/add' -d name="Example Elementary" -d location="San Francisco, CA"
+curl 'http://localhost:8080/api/school/add' -d name="Example Elementary" -d location="San Francisco, CA"
+```
+
+### Response:
+```
+Saved
 ```
 
 ## Fetching all schools
 ```
 curl 'http://localhost:8080/api/school/all'
+```
+### Response: 
+```
+[
+  {
+    "id":1,
+    "name":"Example Elementary",
+    "location":"San Francisco, CA"
+  },
+  {
+    "id":2,
+    "name":"Other Elementary",
+    "location":"San Francisco, CA"
+  }
+]
 ```
